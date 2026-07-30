@@ -1,0 +1,86 @@
+</> CSS
+/* =====================================================
+   피맥 출점 분석 시스템 v1.0
+   style.css
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Malgun Gothic", Arial, sans-serif;
+    background: #f3f4f6;
+    color: #333;
+}
+
+header {
+    background: #1f2937;
+    color: white;
+    padding: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#container {
+    display: flex;
+    height: calc(100vh - 70px);
+}
+
+#sidebar {
+    width: 320px;
+    background: white;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.brand-item {
+    margin-bottom: 12px;
+}
+
+.brand-record {
+    color: #1976d2;
+    font-weight: bold;
+}
+
+.brand-pimac {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    margin-top: 12px;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #1976d2;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1259a7;
+}
+
+#status {
+    margin-top: 20px;
+    padding: 10px;
+    background: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+#map {
+    flex: 1;
+}
