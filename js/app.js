@@ -33,25 +33,49 @@ loadBtn.addEventListener("click",loadStores);
 // CSV 읽기
 async function loadStores(){
 
-    status.innerHTML="매장 정보를 불러오는 중...";
+    status.innerHTML = "매장 정보를 불러오는 중...";
 
-    try{
+    try {
 
-        const response=await fetch("data/stores.csv");
+        const response = await fetch("data/stores.csv");
+        const csv = await response.text();
 
-        const csv=await response.text();
+        const lines = csv.trim().split("\n");
 
-        console.log(csv);
+        let recordCount = 0;
+        let pimacCount = 0;
 
-        status.innerHTML="CSV 읽기 성공";
+        // 첫 줄(헤더) 제외
+        for (let i = 1; i < lines.length; i++) {
+
+            const cols = lines[i].split(",");
+
+            const brand = cols[0].trim();
+
+            if (brand === "레코드피자") {
+
+                recordCount++;
+
+            } else if (brand === "피맥하우스") {
+
+                pimacCount++;
+
+            }
+
+        }
+
+        status.innerHTML =
+            "레코드피자 : " + recordCount + "개<br>" +
+            "피맥하우스 : " + pimacCount + "개<br>" +
+            "총 매장 : " + (recordCount + pimacCount) + "개";
 
     }
 
-    catch(e){
+    catch (e) {
 
         console.error(e);
 
-        status.innerHTML="CSV 읽기 실패";
+        status.innerHTML = "CSV 읽기 실패";
 
     }
 
